@@ -3,7 +3,7 @@ package servicio;
 
 import domain.Cliente;
 import domain.Producto;
-
+import domain.Categoria;
 
 public interface ISuperServicios {
 
@@ -35,4 +35,16 @@ public interface ISuperServicios {
 			String fechaNew, int telefonoNew);
 	
 	public void listarClientes();
+	
+	public void altaCategoria(Categoria cat);
+
+	public void bajaCategoria(int id_categoria);
+
+	public void modificarCategoria(int id_categoria, String nombre_catNew, int id_categoriaNew, String descripcion_catNew);
+
+	public int recuperarId(String nombre_cat);
+
+	public Categoria recuperarCategoria(int id_categoria);
+
+	public void listarCategoria();
 }

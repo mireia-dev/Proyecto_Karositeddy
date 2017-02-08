@@ -1,9 +1,12 @@
 package servicio;
 
+import datos.ColeccionCategoriaImpl;
 import datos.ColeccionClientesImpl;
 import datos.ColeccionProductosImpl;
+import datos.IColeccionCategoria;
 import datos.IColeccionProductos;
 import datos.IColeccionClientes;
+import domain.Categoria;
 import domain.Cliente;
 import domain.Producto;
 import utilidades.LecturaDatos;
@@ -12,7 +15,7 @@ public class SuperServiciosImpl implements ISuperServicios{
 
     IColeccionProductos colProd = new ColeccionProductosImpl();
     IColeccionClientes colCli = new ColeccionClientesImpl();
-
+    IColeccionCategoria colCat= new ColeccionCategoriaImpl();
  
     @Override
 	public void altaProducto() {
@@ -141,6 +144,43 @@ public class SuperServiciosImpl implements ISuperServicios{
 	public void modificarCliente(int id_persona, String nombreNew, String apellidosNew, String emailNew, String passwordNew, 
 			String fechaNew, int telefonoNew) {
 		colCli.modificarCliente(id_persona, nombreNew, apellidosNew, emailNew, passwordNew, fechaNew, telefonoNew);
+		
+	}
+
+	@Override
+	public void altaCategoria(Categoria cat) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void bajaCategoria(int id_categoria) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modificarCategoria(int id_categoria, String nombre_catNew, int id_categoriaNew,
+			String descripcion_catNew) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int recuperarId(String nombre_cat) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Categoria recuperarCategoria(int id_categoria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void listarCategoria() {
+		// TODO Auto-generated method stub
 		
 	}
 	

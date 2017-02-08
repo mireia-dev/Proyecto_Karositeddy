@@ -19,8 +19,15 @@ public class Pantallas {
         System.out.println("*    7.- Eliminar un producto");
         System.out.println("*    8.- Listar los productos existentes");
         System.out.println("*    ");
+        System.out.println("*    --- CATEGORIAS ---");
+        System.out.println("*    9.- Dar de alta una categoria");
+        System.out.println("*    10.- Modificar un categoria");
+        System.out.println("*    11.- Eliminar una categoria");
+        System.out.println("*    12.- Listar las categorias existentes");
+        System.out.println("*    13.- Mostrar categoria concreta");
+        System.out.println("*    ");
         System.out.println("*    0.- Terminar la sesión");
-        System.out.println("************************************************/n");
+        System.out.println("************************************************");
         System.out.print(">> ");        
         
     }    
