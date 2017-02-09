@@ -8,7 +8,7 @@ public interface IColeccionCategoria {
 
 	public void bajaCategoria(int id_categoria);
 
-	public void modificarCategoria(int id_categoria, String nombre_catNew, int id_categoriaNew, String descripcion_catNew);
+	public void modificarCategoria(int id_categoria, String nombre_catNew, String descripcion_catNew);
 
 	public int recuperarId(String nombre_cat);
 

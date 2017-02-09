@@ -28,6 +28,7 @@ public class Categoria {
 	}
 	public void crearCategoria(){
 		this.nombre_cat = LecturaDatos.leerString("Introduzca el Nombre de la Categoria:");
+		this.descripcion_cat = LecturaDatos.leerString("Introduzca la Descripción de la Categoria:");
 	}
 	public void listaCategorias(){
 	}

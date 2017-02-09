@@ -36,15 +36,17 @@ public interface ISuperServicios {
 	
 	public void listarClientes();
 	
+	public void altaCategoria();
+	
 	public void altaCategoria(Categoria cat);
 
+	public void bajaCategoria();
+	
 	public void bajaCategoria(int id_categoria);
 
-	public void modificarCategoria(int id_categoria, String nombre_catNew, int id_categoriaNew, String descripcion_catNew);
-
-	public int recuperarId(String nombre_cat);
-
-	public Categoria recuperarCategoria(int id_categoria);
+	public void modificarCategoria();
+	
+	public void modificarCategoria(int id_categoria, String nombre_catNew, String descripcion_catNew);
 
 	public void listarCategoria();
 }
