@@ -122,7 +122,7 @@ public class SuperServiciosImpl implements ISuperServicios{
 
 	@Override
 	public void modificarCliente(){
-		String nombre = LecturaDatos.leerString("Introduce el nombre del producto a eliminar: ");
+		String nombre = LecturaDatos.leerString("Introduce el nombre del cliente a eliminar: ");
 		int id_persona = colCli.recuperarId(nombre);
 		Cliente cliente = colCli.recuperarCliente(id_persona);
 		

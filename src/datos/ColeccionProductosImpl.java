@@ -34,13 +34,14 @@ public class ColeccionProductosImpl implements IColeccionProductos {
 			Connection cn = null;
 			try {
 				cn = bd.obtenerConexion();
-				String sql = "INSERT INTO producto(nombre_prod, precio_prod, cantidad_stock, id_categoria)";
-				sql += "VALUES(?,?,?,?)"; 
+				String sql = "INSERT INTO producto(nombre_prod, precio_prod, cantidad_stock, descripcion_prod, id_categoria)";
+				sql += "VALUES(?,?,?,?,?)"; 
 				PreparedStatement st = cn.prepareStatement(sql);
 				st.setString(1, p.getNombre_prod());
 				st.setDouble(2, p.getPrecio_prod());
 				st.setInt(3, p.getCantidad_stock());
-				st.setInt(4, p.getId_categoria());
+				st.setString(4, p.getDescripcion_prod());
+				st.setInt(5, p.getId_categoria());
 				st.execute();
 			} catch (SQLException ex) {
 				ex.getMessage();

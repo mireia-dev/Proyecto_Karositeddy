@@ -60,15 +60,14 @@ public class Producto {
 	}
 	
 	public void crearProducto(){
-
 		
 		this.nombre_prod = LecturaDatos.leerString("Introduzca el Nombre:");
 		this.precio_prod = LecturaDatos.leerDouble("Introduzca el Precio:");
 		this.cantidad_stock = LecturaDatos.leerInteger("Introduzca la Cantidad del Stock:");
 		this.descripcion_prod = LecturaDatos.leerString("Introduzca una Descripción:");
-	
-	
+		this.id_categoria = LecturaDatos.leerInteger("Introduzca el id de la Categoría:");
 	}
+	
 	@Override
 	public String toString() {
 		return "Producto [id_producto=" + id_producto + ", nombre_prod=" + nombre_prod + ", precio_prod=" + precio_prod

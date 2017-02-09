@@ -75,12 +75,12 @@ public class ColeccionClientesImpl implements IColeccionClientes{
 		DatosBBDD bd = new DatosBBDD();
 		try {
 			cn = bd.obtenerConexion();
-			String sql = "DELETE * FROM persona WHERE id_persona = ?";
+			String sql = "DELETE FROM persona WHERE id_persona = ?;";
 			PreparedStatement st = cn.prepareStatement(sql);
 			st.setInt(1, id_persona);
 			st.execute();
 			
-			String sql2 = "DELETE * FROM cliente WHERE id_persona = ?";
+			String sql2 = "DELETE FROM cliente WHERE id_persona = ?;";
 			st = cn.prepareStatement(sql2);
 			st.setInt(1,id_persona);
 			st.execute();
@@ -109,10 +109,11 @@ public class ColeccionClientesImpl implements IColeccionClientes{
 			st.setInt(5, id_persona);
 			st.execute();
 
-			String sql2 = " UPDATE cliente SET fecha_nacimiento = ?, telefono = ? WHERE id_contacto = ?;";
+			String sql2 = " UPDATE cliente SET fecha_nacimiento = ?, telefono = ? WHERE id_persona = ?;";
 			st = cn.prepareStatement(sql2);
 			st.setString(1, fechaNew);
 			st.setInt(2, telefonoNew);
+			st.setInt(3, id_persona);
 			st.execute();
 
 			System.out.println("¡Enhorabuena! ¡Has modificado el Cliente " + nombreNew + "!");

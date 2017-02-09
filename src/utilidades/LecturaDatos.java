@@ -19,7 +19,7 @@ public class LecturaDatos {
     }
 
     public static String leerString() {
-        return new Scanner(System.in).next();
+        return new Scanner(System.in).nextLine();
     }
 
     public static String leerString(String texto) {
