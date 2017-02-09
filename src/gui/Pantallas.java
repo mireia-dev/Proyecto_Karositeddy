@@ -24,7 +24,6 @@ public class Pantallas {
         System.out.println("*    10.- Modificar un categoria");
         System.out.println("*    11.- Eliminar una categoria");
         System.out.println("*    12.- Listar las categorias existentes");
-        System.out.println("*    13.- Mostrar categoria concreta");
         System.out.println("*    ");
         System.out.println("*    0.- Terminar la sesión");
         System.out.println("************************************************");

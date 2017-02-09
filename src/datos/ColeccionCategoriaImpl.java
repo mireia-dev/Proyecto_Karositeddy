@@ -35,9 +35,8 @@ public class ColeccionCategoriaImpl implements IColeccionCategoria{
 		
 		try {
 			cn = bd.obtenerConexion();
-			String sql1 = "INSERT INTO categoria(nombre_cat, descripcion_cat)";
-			sql1 += "VALUES(?,?);";
-			PreparedStatement st = cn.prepareStatement(sql1);
+			String sql = "INSERT INTO categoria(nombre_cat, descripcion_cat) VALUES(?,?);";
+			PreparedStatement st = cn.prepareStatement(sql);
 			st.setString(1, cat.getNombre_cat());
 			st.setString(2, cat.getDescripcion_cat());
 			st.execute();
@@ -56,33 +55,32 @@ public class ColeccionCategoriaImpl implements IColeccionCategoria{
 		DatosBBDD bd = new DatosBBDD();
 		try {
 			cn = bd.obtenerConexion();
-			String sql = "DELETE * FROM categoria WHERE id_categoria = ?";
+			String sql = "DELETE FROM categoria WHERE id_categoria = ?";
 			PreparedStatement st = cn.prepareStatement(sql);
 			st.setInt(1, id_categoria);
 			st.execute();
-	
 			
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			ex.getMessage();
 		} finally {
 			bd.cerrarConexion(cn);
 		}	
 	}
 
 	@Override
-	public void modificarCategoria(int id_categoria, String nombre_catNew, int id_categoriaNew, String descripcion_catNew){
+	public void modificarCategoria(int id_categoria, String nombre_catNew, String descripcion_catNew){
 		DatosBBDD bd = new DatosBBDD();
 		Connection cn = null;
 		try {
 			cn = bd.obtenerConexion();
-			String sql = "UPDATE categoria SET nombre_cat = ?, descripcion_cat = ?, id_categoriaNew = ? WHERE id_categoria = ?;";
+			String sql = "UPDATE categoria SET nombre_cat = ?, descripcion_cat = ? WHERE id_categoria = ?;";
 			PreparedStatement st = cn.prepareStatement(sql);
 			st.setString(1, nombre_catNew);
-			st.setString(2, descripcion_catNew);
-			st.setInt(3, id_categoriaNew);
+			st.setString(2,  descripcion_catNew);
+			st.setInt(3, id_categoria);
 			st.execute();
 
-			System.out.println("¡Enhorabuena! ¡Has modificado el Cliente " + nombre_catNew + "!");
+			System.out.println("¡Enhorabuena! ¡Has modificado la Categoria " + nombre_catNew + "!");
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -99,7 +97,7 @@ public class ColeccionCategoriaImpl implements IColeccionCategoria{
 		
 		try {
 			cn = bd.obtenerConexion();
-			String sql = "SELECT id_categoria FROM categoria WHERE nombre_cat = ?";
+			String sql = "SELECT id_categoria FROM categoria WHERE nombre_cat = ?;";
 			PreparedStatement st = cn.prepareStatement(sql);
 			st.setString(1, nombre_cat);
 			ResultSet rs = st.executeQuery();
@@ -122,7 +120,7 @@ public class ColeccionCategoriaImpl implements IColeccionCategoria{
 
 		try {
 			cn = bd.obtenerConexion();
-			String sql = "SELECT nombre_cat, descripcion_cat, id_categoria FROM categoria WHERE id_categoria = ?";
+			String sql = "SELECT id_categoria, nombre_cat, descripcion_cat FROM categoria WHERE id_categoria = ?;";
 			PreparedStatement st = cn.prepareStatement(sql);
 			st.setInt(1, id_categoria);
 			ResultSet rs = st.executeQuery();
@@ -147,7 +145,7 @@ public class ColeccionCategoriaImpl implements IColeccionCategoria{
 		try {
 			cn = bd.obtenerConexion();
 			st = cn.createStatement();
-			String sql = "SELECT id_categoria, nombre_cat, descripcion_cat FROM persona p INNER JOIN cliente c ON c.id_persona = p.id_persona";
+			String sql = "SELECT id_categoria, nombre_cat, descripcion_cat FROM categoria;";
 			rs = st.executeQuery(sql);
 			while (rs.next()) {
 				int categoria = rs.getInt("id_categoria");

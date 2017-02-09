@@ -82,6 +82,9 @@ public class SuperServiciosImpl implements ISuperServicios{
 	}
 	
 	
+	//Clientes
+	
+	
 	@Override
 	public void altaCliente() {
 		Cliente c = new Cliente();
@@ -147,41 +150,66 @@ public class SuperServiciosImpl implements ISuperServicios{
 		
 	}
 
+	
+	//Categorias
+	
+	
+	@Override
+	public void altaCategoria() {
+		Categoria cat = new Categoria();
+		cat.crearCategoria();
+		altaCategoria(cat);
+	}
+	
 	@Override
 	public void altaCategoria(Categoria cat) {
-		// TODO Auto-generated method stub
-		
+		colCat.altaCategoria(cat);
 	}
 
 	@Override
-	public void bajaCategoria(int id_categoria) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void bajaCategoria() {
+		String nombre_cat = LecturaDatos.leerString("Introduce el nombre de la Categoria a eliminar: ");
+		int id_categoria = colCat.recuperarId(nombre_cat);
+		Categoria categoria = colCat.recuperarCategoria(id_categoria);
 
-	@Override
-	public void modificarCategoria(int id_categoria, String nombre_catNew, int id_categoriaNew,
-			String descripcion_catNew) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int recuperarId(String nombre_cat) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Categoria recuperarCategoria(int id_categoria) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void listarCategoria() {
-		// TODO Auto-generated method stub
+		if (categoria == null) {
+			System.out.println("NO EXISTE ESTA CATEGORIA, no se puede borrar");
+		} else {
+			bajaCategoria(id_categoria);
+			
+			System.out.println("¡El Cliente ha sido Eliminado!");
+		}
 		
 	}
 	
+	@Override
+	public void bajaCategoria(int id_categoria) {
+		colCat.bajaCategoria(id_categoria);
+	}
+
+	@Override
+	public void modificarCategoria(){
+	String nombre_cat = LecturaDatos.leerString("Introduce el nombre de la categoria a modificar: ");
+	int id_categoria = colCat.recuperarId(nombre_cat);
+	
+	if (id_categoria == 0) {
+		System.out.println("NO EXISTE LA CATEGORIA, no se puede borrar");
+	} else {
+		String nombre_catNew = LecturaDatos.leerString("Introduce el nuevo nombre de la categoría: ");
+		String descripcion_catNew = LecturaDatos.leerString("Introduce la nueva descripción de la categoría: ");
+		
+		modificarCategoria(id_categoria, nombre_catNew,  descripcion_catNew);			
+		}
+	}
+	
+	@Override
+	public void modificarCategoria(int id_categoria, String nombre_catNew, String descripcion_catNew) {
+		colCat.modificarCategoria(id_categoria, nombre_catNew, descripcion_catNew);
+	}
+	
+	@Override
+	public void listarCategoria() {
+		colCat.listarCategoria();
+	}
+
 }
